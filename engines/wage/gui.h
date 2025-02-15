@@ -133,6 +133,8 @@ public:
 	void actionCut();
 	void disableUndo();
 	void disableAllMenus();
+	void enableAllMenus();
+	
 	void enableNewGameMenus();
 	void enableSave();
 	void enableRevert();

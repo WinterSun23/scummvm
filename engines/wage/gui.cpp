@@ -278,7 +278,17 @@ void Gui::executeMenuCommand(int action, Common::String &text) {
 	case kMenuActionRevert:
 		if (_engine->_defaultSaveSlot != -1) {
 			_engine->_isGameOver = false;
+
 			_engine->loadGameState(_engine->_defaultSaveSlot);
+			_engine->_gui->enableAllMenus();
+			_engine->_world->_weaponMenuDisabled = false;
+			_engine->_gui->regenCommandsMenu();
+			_engine->_gui->regenWeaponsMenu();
+
+			_scene = nullptr; 	// To force current scene to be redrawn
+			_engine->redrawScene();
+			g_system->updateScreen();
+			g_system->delayMillis(100);
 		}
 		break;
 
@@ -408,6 +418,10 @@ void Gui::disableUndo() {
 
 void Gui::disableAllMenus() {
 	_menu->disableAllMenus();
+}
+
+void Gui::enableAllMenus() {
+	_menu->enableAllMenus();
 }
 
 void Gui::enableNewGameMenus() {

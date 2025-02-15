@@ -247,6 +247,7 @@ private:
 	int saveGame(const Common::String &fileName, const Common::String &descriptionString);
 	int loadGame(int slotId);
 
+	void resetAllParameters();
 	void restart();
 
 private:
