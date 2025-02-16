@@ -189,7 +189,7 @@ void WageEngine::resetAllParameters() {
 }
 
 void WageEngine::restart() {
-	if(_isGameOver)
+	if (_isGameOver)
 		resetAllParameters();
 	_restartRequested = false;
 	delete _gui;
